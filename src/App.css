@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style:none
+}
+
+#appWarp{
+    width: 100%;
+    height: 500px;
+    border: 1px solid #333333;
+}
+.st-list{
+    padding-left: 25px;
+    margin-top: 25px;
+}
+.st-list p {
+    font-size: 12px;
+}

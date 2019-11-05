@@ -1,17 +1,56 @@
-import React from 'react';
-import Nav from './Nav/Nav'
-class App extends React.Component {
-  constructor(props){
+import React, { Component } from 'react';
+class App extends Component {
+  constructor(props) {
     super(props)
     this.state = {
-      msg:"我是父组件"
+      studyList: [
+        {
+          Day: "第一天",
+          case: "评论案例",
+          name: "组件名"
+        },
+        {
+          Day: "第一天",
+          case: "评论案例",
+          name: "组件名"
+        }
+        ,
+        {
+          Day: "第一天",
+          case: "评论案例",
+          name: "组件名"
+        }
+        ,
+        {
+          Day: "第一天",
+          case: "评论案例",
+          name: "组件名"
+        }
+        ,
+        {
+          Day: "第一天",
+          case: "评论案例",
+          name: "组件名"
+        }
+        ,
+        {
+          Day: "第一天",
+          case: "评论案例",
+          name: "组件名"
+        }
+      ]
     }
   }
-  render(){
+  render() {
+    let {studyList} = this.state
     return (
-      <div>
-        {this.state.msg}
-        <Nav/>
+      <div id = "appWarp">
+          <h1>React学习</h1>
+          <ul>
+            {studyList.map((item,index)=>{
+                return <li className = "st-list" key={index} ><h4>{item.Day}</h4><p>{item.case}</p></li>
+            })}
+          </ul>
       </div>
     )
   }
