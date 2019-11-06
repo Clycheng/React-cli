@@ -14,7 +14,12 @@ li {
 .st-list{
     padding-left: 25px;
     margin-top: 25px;
+    border: 1px solid blueviolet;
+    cursor: pointer;
 }
 .st-list p {
     font-size: 12px;
+}
+.warp-active {
+    display: none;
 }
