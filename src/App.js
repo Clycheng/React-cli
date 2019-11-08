@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Comment from  './Day1/comment'
+import AxiosDemo from './Day2/axiosdemo'
 class App extends Component {
   constructor(props) {
     super(props)
@@ -8,6 +9,11 @@ class App extends Component {
         {
           Day: "第一天",
           case: "评论案例",
+          name: "组件名"
+        },
+        {
+          Day: "第二天",
+          case: "搜索案例",
           name: "组件名"
         }
       ],
@@ -35,7 +41,7 @@ class App extends Component {
     })
   }
   render() {
-    let {studyList} = this.state
+    let {studyList,Page} = this.state
     return (
       <div id = "appWarp">
           <h1>React学习</h1>
@@ -45,7 +51,8 @@ class App extends Component {
                 return <li onClick = {()=>this.handChangePage(index)} data-value={index} className = "st-list" key={index} ><h4 data-value={index}>{item.Day}</h4><p data-value={index}>{item.case}</p></li>
             })}
           </ul> 
-          <Comment befroeChange = {this.befroeChange}  Page = {this.state.Page}/>
+          <Comment befroeChange = {this.befroeChange}  Page = {Page}/>
+          <AxiosDemo befroeChange = {this.befroeChange}  Page = {Page}/>
       </div>
     )
   }

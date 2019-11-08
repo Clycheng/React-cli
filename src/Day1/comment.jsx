@@ -85,7 +85,6 @@ class Info extends Component{
         })
     }
     deleteList = (e)=>{
-        console.log()
         let {List} = this.state
         List.splice(e.target.getAttribute("data-value"),1)
         this.setState({

@@ -1,0 +1,21 @@
+#search {
+    display: none;
+}
+#search.active{
+    display:block;
+}
+
+input {
+    height: 50px;
+
+}
+button {
+    height: 50px;
+}
+li {
+    float: left;
+}
+li img {
+    width: 100px;
+    height: 100px;
+}
