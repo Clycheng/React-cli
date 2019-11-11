@@ -32,9 +32,3 @@
     width: 100%;
     border: 1px solid #333333;
 }
-div#comment {
-    display: none;
-}
-div#comment.active{
-    display: block;
-}

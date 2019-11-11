@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import RouterDemo from './Day3/head'
 import Comment from  './Day1/comment'
 import AxiosDemo from './Day2/axiosdemo'
+import Routerprops from './Day4/index'
+import {NavLink,Switch,Route} from 'react-router-dom'
 class App extends Component {
   constructor(props) {
     super(props)
@@ -9,50 +12,48 @@ class App extends Component {
         {
           Day: "第一天",
           case: "评论案例",
-          name: "组件名"
+          name: "/comment"
         },
         {
           Day: "第二天",
           case: "搜索案例",
-          name: "组件名"
+          name: "/search"
+        },
+        {
+          Day: "第三天",
+          case: "路由案例",
+          name: "/router"
+        },
+        {
+          Day: "第四天",
+          case: "路由传参",
+          name: "/routerprops"
         }
       ],
-      Page:-1,
-      disWarp:false
     }
    
   
   }
-  handChangePage = (e)=>{
-    // e.stopPropagation();
-    // let {Page} = this.state
-    // Page = e.target.getAttribute("data-value")
-    this.setState({
-      Page:e,
-      disWarp:true
-    })
-    // console.log(this.state.Page)
-  }
-  // 返回按钮事件
-  befroeChange = ()=>{
-    this.setState({
-      Page:-1,
-      disWarp:false
-    })
-  }
   render() {
-    let {studyList,Page} = this.state
+    let {studyList} = this.state
     return (
       <div id = "appWarp">
           <h1>React学习</h1>
           
-          <ul className = {this.state.disWarp?'warp-active':""}>
+          <ul  id = 'List-warp'>
             {studyList.map((item,index)=>{
-                return <li onClick = {()=>this.handChangePage(index)} data-value={index} className = "st-list" key={index} ><h4 data-value={index}>{item.Day}</h4><p data-value={index}>{item.case}</p></li>
+                return <li  className = "st-list" key={index} >
+              <NavLink to ={item.name}>{item.Day}<p>{item.case}</p></NavLink>
+                </li>
             })}
           </ul> 
-          <Comment befroeChange = {this.befroeChange}  Page = {Page}/>
-          <AxiosDemo befroeChange = {this.befroeChange}  Page = {Page}/>
+          <Switch>
+              <Route path='/comment' component ={Comment}/>
+              <Route path='/search' component ={AxiosDemo}/>
+              <Route path='/router' component ={RouterDemo}/>
+              <Route path='/routerprops' component ={Routerprops}/>
+          </Switch>
+            
       </div>
     )
   }

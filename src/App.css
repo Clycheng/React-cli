@@ -20,6 +20,7 @@ li {
 .st-list p {
     font-size: 12px;
 }
-.warp-active {
-    display: none;
+#List-warp{
+    float: left;
+    width: 45%;
 }
