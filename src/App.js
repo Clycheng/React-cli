@@ -3,6 +3,7 @@ import RouterDemo from './Day3/head'
 import Comment from  './Day1/comment'
 import AxiosDemo from './Day2/axiosdemo'
 import Routerprops from './Day4/index'
+import RouterLink from './Day5/index'
 import {NavLink,Switch,Route} from 'react-router-dom'
 class App extends Component {
   constructor(props) {
@@ -28,6 +29,11 @@ class App extends Component {
           Day: "第四天",
           case: "路由传参",
           name: "/routerprops"
+        },
+        {
+          Day: "第五天",
+          case: "路由链接与非路由链接的区别",
+          name: "/routerLink"
         }
       ],
     }
@@ -52,6 +58,7 @@ class App extends Component {
               <Route path='/search' component ={AxiosDemo}/>
               <Route path='/router' component ={RouterDemo}/>
               <Route path='/routerprops' component ={Routerprops}/>
+              <Route path = '/routerLink' component = {RouterLink}/>
           </Switch>
             
       </div>
