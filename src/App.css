@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -23,4 +24,11 @@ li {
 #List-warp{
     float: left;
     width: 45%;
+}
+
+#route-warp{
+    position: fixed;
+    width:50%;
+    height: 450px;
+    right: 50px;
 }

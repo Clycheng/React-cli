@@ -4,6 +4,7 @@ import Comment from  './Day1/comment'
 import AxiosDemo from './Day2/axiosdemo'
 import Routerprops from './Day4/index'
 import RouterLink from './Day5/index'
+import ReduxDemo from './Day6/index'
 import {NavLink,Switch,Route} from 'react-router-dom'
 class App extends Component {
   constructor(props) {
@@ -34,6 +35,11 @@ class App extends Component {
           Day: "第五天",
           case: "路由链接与非路由链接的区别",
           name: "/routerLink"
+        },
+        {
+          Day: "第六天",
+          case: "ReduxDemo",
+          name: "/ReduxDemo"
         }
       ],
     }
@@ -53,13 +59,17 @@ class App extends Component {
                 </li>
             })}
           </ul> 
+          <div id = "route-warp">
           <Switch>
               <Route path='/comment' component ={Comment}/>
               <Route path='/search' component ={AxiosDemo}/>
               <Route path='/router' component ={RouterDemo}/>
               <Route path='/routerprops' component ={Routerprops}/>
               <Route path = '/routerLink' component = {RouterLink}/>
+              <Route path = '/ReduxDemo' component = {ReduxDemo}/>
           </Switch>
+          </div>
+       
             
       </div>
     )
