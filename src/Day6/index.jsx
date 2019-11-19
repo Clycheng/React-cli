@@ -1,25 +1,29 @@
 import React, { Component } from 'react'
 import { Button, Input, List } from 'antd';
-export default class ReduxDemo extends Component {
+import {add, del} from '../store/actions'
+import { connect } from 'react-redux'
+ class ReduxDemo extends Component {
     constructor(props) {
         super(props)
+        const {data} = this.props
+     
         this.state = {
-            plaValue: "请输入",
-            List: [
-                'Racing car sprays burning fuel into crowd.',
-                'Japanese princess to wed commoner.',
-                'Australian walks 100km after outback crash.',
-                'Man charged over missing wedding girl.',
-                'Los Angeles battles huge wildfires.',
-            ]
+            ...data.reduxDemo,
         }
-
+        // console.log (add,del)
+    }
+    handChange = (e)=>{
+        this.setState({
+            plaValue:e.target.value
+        })
     }
     render() {
+        const {add,data} = this.props
+        console.log(data)
         return (
             <div>
-                <p>  <Input style={{ width: '50%' }} placeholder={this.state.plaValue} />
-                    <Button type="primary">Primary</Button></p>
+                <p>  <Input onChange = {this.handChange} style={{ width: '50%' }} placeholder={this.state.plaValue} />
+                    <Button onClick = {()=>{add(this.state.plaValue)}} type="primary">Primary</Button></p>
                 <List
                     size="large"
                     header={<div>Header</div>}
@@ -32,3 +36,7 @@ export default class ReduxDemo extends Component {
         )
     }
 }
+
+export default connect(state=>{
+    return {data:state}
+},{add,del})(ReduxDemo)
